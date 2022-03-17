@@ -9,4 +9,13 @@
 //daca stiva este plina si vrem sa introducem un nou element in stiva va trebui prima data sa dublam capacitatea stivei
 //daca numarul de elemente din stiva este egal cu un sfert din capacitatea stivei atunci vom injumatati capacitatea stivei
 
-int []stack = new int [2];
+Console.WriteLine("Hello World!");
+
+MyStack s = new MyStack();
+
+Random rnd = new Random();
+
+for(int i = 0; i < 10; i++)
+{
+    s.Push(rnd.Next(100));
+}
