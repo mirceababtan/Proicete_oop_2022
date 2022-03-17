@@ -64,4 +64,16 @@ internal class MyStack
             throw new StackEmptyException("Am incercat sa elimin un element din stiva goala.s");
         }
     }
+
+    public int Peek()
+    {
+        if (Count > 0)
+        {
+            return _data[Count-1];
+        }
+        else
+        {
+            throw new StackEmptyException("Am incercat sa examinez vf unei stive goale");
+        }
+    }
 }

@@ -29,3 +29,6 @@ while(s.Count > 0)
 }
 
 Console.WriteLine($"Numarul de elemente din stiva este {s.Count}.");
+
+s.Push(1);
+Console.WriteLine($"Elementul din vf stivei este: {s.Peek()}");
