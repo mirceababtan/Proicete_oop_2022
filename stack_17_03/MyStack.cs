@@ -1,7 +1,7 @@
 ﻿
 using System.Diagnostics;
 
-internal class MyStack
+public class MyStack
 {
 
     private int[] _data;
