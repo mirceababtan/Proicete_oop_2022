@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics;
+
 internal class MyStack
 {
 
@@ -14,15 +16,24 @@ internal class MyStack
 
     public void Push(int value)
     {
-        Console.WriteLine($"Incerc sa adaug valoarea {value} in stiva");
+        Debug.WriteLine($"Incerc sa adaug valoarea {value} in stiva");
         
-        if(Count < Capacity)
+        if(Count == Capacity)
         {
-            _data[Count] = value;
-            _count++;
+            _capacity *= 2;
+            int[] vs = new int[_capacity];
+            for (int i = 0; i < Count; i++)
+            {
+                vs[i] = _data[i];
+            }
+            _data = vs;
+            Debug.WriteLine("Se dubleaza capacitatea stivei");
         }
 
+        _data[Count] = value;
+        _count++;
     }
+
 
     public int Capacity
     {
@@ -37,6 +48,20 @@ internal class MyStack
         get
         {
             return _count; 
+        }
+    }
+
+    public int Pop()
+    {
+        if(Count > 0)
+        {
+            _count--;
+            Debug.WriteLine($"Se elimina din stiva elementul {_data[_count]}");
+            return _data[_count];
+        }
+        else
+        {
+            throw new StackEmptyException("Am incercat sa elimin un element din stiva goala.s");
         }
     }
 }
